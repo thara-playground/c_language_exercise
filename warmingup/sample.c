@@ -3,18 +3,11 @@
 #define N 10
 
 int get_index_of_max_value(int data[], int len) {
-    int maxi;
-
-    int i;
-    int max;
-    max = 0;
+    int i, maxi;
+    maxi = 0;
     for (i = 0; i < len; i++) {
-        if (max < data[i]) {
-            max = data[i];
-            maxi = i;
-        }
+        if (data[maxi] < data[i]) maxi = i;
     }
-
     return maxi;
 }
 
