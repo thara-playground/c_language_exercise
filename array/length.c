@@ -23,11 +23,11 @@ int arrayIndex(int array[], int n, int val)
 void arrayReverse(int array[], int n)
 {
     int tmp;
-    int i;
+    int i, j;
     int c = n - 1;
-    for (i = 0; i < n / 2; i++) {
-        tmp = array[c - i];
-        array[c - i] = array[i];
+    for (i = 0, j = n - 1; i < j; i++, j--) {
+        tmp = array[j];
+        array[j] = array[i];
         array[i] = tmp;
     }
 }
