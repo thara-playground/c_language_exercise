@@ -25,7 +25,7 @@ void arrayReverse(int array[], int n)
     int tmp;
     int i;
     int c = n - 1;
-    for (i = 0; i <= (n / 2) - 1; i++) {
+    for (i = 0; i < n / 2; i++) {
         tmp = array[c - i];
         array[c - i] = array[i];
         array[i] = tmp;
