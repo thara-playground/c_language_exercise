@@ -13,6 +13,10 @@ void arrayPrint(int array[], int n)
 
 int compareByDictionaryOrder(int a1[], int n1, int a2[], int n2)
 {
+    int i;
+    for (i = 0; a1[i] != END && a2[i] != END && a1[i] == a2[i]; i++);
+    return a1[i] - a2[i];
+    /*
     int i1;
     int i2;
     for (i1 = 0, i2 = 0; i1 < n1 && i2 < n2; i1++, i2++) {
@@ -24,12 +28,13 @@ int compareByDictionaryOrder(int a1[], int n1, int a2[], int n2)
     }
 
     return n1 - n2;
+    */
 }
 
 int main()
 {
-    int a1[] = {1, 2, 3, 4};
-    int a2[] = {1, 2, 4, 2};
+    int a1[] = {1, 2, 3, 4, END};
+    int a2[] = {1, 2, 4, 2, END};
     int answer;
 
     arrayPrint(a1, 4);

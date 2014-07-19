@@ -10,8 +10,54 @@ void arrayPrint(int array[], int n)
     printf("\n");
 }
 
+void arrayReverse(int array[], int n)
+{
+    int tmp;
+    int i, j;
+    int c = n - 1;
+    for (i = 0, j = n - 1; i < j; i++, j--) {
+        tmp = array[j];
+        array[j] = array[i];
+        array[i] = tmp;
+    }
+}
+
+int gcd(int x, int y)
+{
+    int r;
+    while (y != 0) {
+        r = x % y;
+        x = y;
+        y = r;
+    }
+    return x;
+}
+
 void arrayRotate(int a[], int n, int k)
 {
+    int d, i, j, mk;
+    int b;
+
+    if (n == 0 || k == 0) return;
+
+    d = gcd(n, k);
+    mk = (n - k) % n;
+    for (i = 0; i < d; i++) {
+        b = a[i];
+        for (j = 1; j < n / d; j++) {
+            a[(i + (j - 1) * mk) % n] = a[(i + j * mk) % n];
+        }
+        a[(i + k) % n] = b;
+    }
+
+
+    /*
+    arrayReverse(a, n);
+    arrayReverse(a, k);
+    arrayReverse(a+k, n-k);
+    */
+
+    /*
     int tmp[n];
 
     int i;
@@ -22,6 +68,7 @@ void arrayRotate(int a[], int n, int k)
     for (i = 0; i < n; i++) {
         a[i] = tmp[i];
     }
+    */
 }
 
 int main()

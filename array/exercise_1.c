@@ -13,14 +13,18 @@ void arrayPrint(int array[], int n)
 void arrayInsert(int array[], int n, int newdata, int k)
 {
     int i;
-    for (i = n - 1; 0 <= i; i--) {
-        if (i == k) {
-            array[i] = newdata;
-            break;
-        } else {
-            array[i] = array[i - 1];
-        }
+    for (i = n; i > k; i--) {
+        array[i] = array[i - 1];
     }
+    array[k] = newdata;
+    /* for (i = n - 1; 0 <= i; i--) { */
+    /*     if (i == k) { */
+    /*         array[i] = newdata; */
+    /*         break; */
+    /*     } else { */
+    /*         array[i] = array[i - 1]; */
+    /*     } */
+    /* } */
 }
 
 void arrayDelete(int array[], int n, int k)
